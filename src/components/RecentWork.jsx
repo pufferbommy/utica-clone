@@ -15,7 +15,7 @@ const RecentWork = () => {
             architecture.
           </p>
         </div>
-        <div className="grid grid-cols-2 mt-28 gap-10">
+        <div className="grid grid-cols-2 mt-32 gap-10">
           <ProjectCard
             image="https://images.squarespace-cdn.com/content/v1/5ce435d6bea1ed00016ba287/1562693679886-PWN6ZS4KGLZFKHBQQFJ1/MHeiderich-NIP03-copy.jpg?format=1000w"
             title="Project One"

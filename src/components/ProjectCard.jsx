@@ -6,11 +6,10 @@ const ProjectCard = ({ image, title, destination }) => {
   return (
     <>
       <Link className="group" to={destination}>
-        <img
-          className="group-hover:brightness-110 duration-300 transition"
-          src={image}
-          alt={title}
-        />
+        <div className="relative">
+          <div className="group-hover:bg-white group-hover:opacity-40 duration-200 absolute w-full opacity-0 h-[40rem]" />
+          <img className="object-cover w-full h-[40rem]" src={image} alt={title} />
+        </div>
         <h1 className="mt-4 text-3xl pb-4">{title}</h1>
       </Link>
     </>

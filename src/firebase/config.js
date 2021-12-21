@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB_ZLFzpMAixT8RncRNgFqJELjFI1u4rx4',
@@ -11,13 +11,13 @@ const firebaseConfig = {
 };
 
 // init firebase app
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 // init services
-const db = getFirestore();
+export const db = getFirestore();
 
 // collection ref
 const contactRef = collection(db, 'contact');
 
-// add
+// add doc
 export const addNewDoc = (doc) => addDoc(contactRef, doc);

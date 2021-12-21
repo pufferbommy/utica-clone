@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
   return (
     <>
-      <div className="flex justify-between items-center p-16 pt-10">
+      <div className="flex justify-between items-center p-20 pt-10">
         <div>
           <Link className="text-4xl" to="/">
             Utica

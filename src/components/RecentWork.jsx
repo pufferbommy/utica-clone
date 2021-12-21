@@ -4,8 +4,8 @@ import ProjectCard from './ProjectCard';
 const RecentWork = () => {
   return (
     <>
-      <div className="p-16">
-        <div>
+      <div className="p-20">
+        <div className="ml-32">
           <h1 className="text-5xl mb-8">Recent Work</h1>
           <p className="font-light tracking-wide text-lg mb-10">
             Our practice spans from environmental retrofits of existing buildings to
@@ -23,17 +23,17 @@ const RecentWork = () => {
           />
           <ProjectCard
             image="https://images.squarespace-cdn.com/content/v1/5ce435d6bea1ed00016ba287/1562950339456-XGX19I073LUIOQ734ZRH/MHeiderich-ReflexionenZwei-03-copy.jpg?format=1000w"
-            title="Project One"
+            title="Project Two"
             destination="/work-1/project-two"
           />
           <ProjectCard
             image="https://images.squarespace-cdn.com/content/v1/5ce435d6bea1ed00016ba287/1562693068347-NZHZC20YE5XHVWCFIQRP/MHeiderich-NIP01-copy.jpg?format=1000w"
-            title="Project One"
+            title="Project Three"
             destination="/work-1/project-three"
           />
           <ProjectCard
             image="https://images.squarespace-cdn.com/content/v1/5ce435d6bea1ed00016ba287/1562693952906-WHE0309VLUSKQJLTGCEQ/MHeiderich_ReflexionenZwei-04-copy.jpg?format=1000w"
-            title="Project One"
+            title="Project Four"
             destination="/work-1/project-four"
           />
         </div>

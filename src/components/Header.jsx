@@ -7,9 +7,8 @@ const Header = () => {
   return (
     <>
       <div className="p-16 pt-8">
-        <h1 className="text-7xl leading-tight">
-          Utica is an architecture firm <br />
-          based in Copenhegan, Denmark.
+        <h1 className="text-6xl ml-32 leading-tight">
+          Utica is an architecture firm based in <br /> Copenhegan, Denmark.
         </h1>
       </div>
       <div>

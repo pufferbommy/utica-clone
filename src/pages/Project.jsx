@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { onSnapshot, collection } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import ProjectHeader from '../components/ProjectHeader';
+import ProjectHeaderSkeleton from '../components/ProjectHeaderSkeleton';
 
 const Project = () => {
   const { id } = useParams();
@@ -30,9 +31,9 @@ const Project = () => {
   return (
     <>
       {selectedProject ? (
-        <ProjectHeader selectedProject={selectedProject} />
+        <ProjectHeader projects={projects} selectedProject={selectedProject} />
       ) : (
-        <div>Loading...</div>
+        <ProjectHeaderSkeleton />
       )}
     </>
   );

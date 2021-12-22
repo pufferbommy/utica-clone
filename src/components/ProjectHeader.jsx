@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from 'react-icons/md';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
-const ProjectHeader = ({ selectedProject, projects }) => {
+const ProjectHeader = ({ selectedProject, prevProject, nextProject }) => {
   const { title, image, description } = selectedProject;
-  const projectsThatIsNotSelect = projects.filter(
-    (project) => project.id !== selectedProject.id,
-  );
-  const [prevProject, setPrevProject] = useState(null);
-  const [nextProject, setNextProject] = useState(null);
 
-  useEffect(() => {
-    setPrevProject();
-  }, []);
   return (
     <>
       <div className="justify-center mb-20 flex py-24 px-20 gap-[35rem]">
@@ -21,11 +15,25 @@ const ProjectHeader = ({ selectedProject, projects }) => {
         </p>
       </div>
       <div>
-        <img className="w-full h-screen" src={image} alt={title} />
+        <img className="w-full opacity-[0.85] h-screen" src={image} alt={title} />
       </div>
-      <div className="flex justify-between">
-        <Link to="/"></Link>
-        <Link to="/"></Link>
+      <div className="flex my-12 mx-20 text-4xl justify-between">
+        <Link
+          onClick={useScrollToTop}
+          className="flex gap-8"
+          to={prevProject.destination}
+        >
+          {prevProject.title && <MdOutlineArrowBackIos />}
+          {prevProject.title}
+        </Link>
+        <Link
+          onClick={useScrollToTop}
+          className="flex gap-8"
+          to={nextProject.destination}
+        >
+          {nextProject.title}
+          {nextProject.title && <MdOutlineArrowForwardIos />}
+        </Link>
       </div>
     </>
   );

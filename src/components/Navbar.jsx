@@ -6,7 +6,6 @@ const Navbar = () => {
   let match = useMatch('/work-1/:id');
 
   useEffect(() => {
-    console.log(match);
     if (match) {
       setIsProjectPage(true);
     } else {

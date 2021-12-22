@@ -7,8 +7,60 @@ import ProjectHeaderSkeleton from '../components/ProjectHeaderSkeleton';
 
 const Project = () => {
   const { id } = useParams();
-  const [projects, setProjects] = useState(null);
+  const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [prevProject, setPrevProject] = useState({ title: '', destination: '' });
+  const [nextProject, setNextProject] = useState({ title: '', destination: '' });
+
+  useEffect(() => {
+    switch (id) {
+      case 'project-one':
+        setPrevProject((prev) => ({ ...prev, title: '', destination: '' }));
+        setNextProject((prev) => ({
+          ...prev,
+          title: 'Project Two',
+          destination: '/work-1/project-two',
+        }));
+        break;
+      case 'project-two':
+        setPrevProject((prev) => ({
+          ...prev,
+          title: 'Project One',
+          destination: '/work-1/project-one',
+        }));
+        setNextProject((prev) => ({
+          ...prev,
+          title: 'Project Three',
+          destination: '/work-1/project-three',
+        }));
+        break;
+      case 'project-three':
+        setPrevProject((prev) => ({
+          ...prev,
+          title: 'Project Two',
+          destination: '/work-1/project-two',
+        }));
+        setNextProject((prev) => ({
+          ...prev,
+          title: 'Project Four',
+          destination: '/work-1/project-four',
+        }));
+        break;
+      case 'project-four':
+        setPrevProject((prev) => ({
+          ...prev,
+          title: 'Project Three',
+          destination: '/work-1/project-three',
+        }));
+        setNextProject((prev) => ({
+          ...prev,
+          title: '',
+          destination: '',
+        }));
+        break;
+      default:
+    }
+  }, [id]);
 
   useEffect(() => {
     if (projects) {
@@ -31,7 +83,12 @@ const Project = () => {
   return (
     <>
       {selectedProject ? (
-        <ProjectHeader projects={projects} selectedProject={selectedProject} />
+        <ProjectHeader
+          projects={projects}
+          selectedProject={selectedProject}
+          prevProject={prevProject}
+          nextProject={nextProject}
+        />
       ) : (
         <ProjectHeaderSkeleton />
       )}

@@ -11,7 +11,6 @@ const ProjectHeader = ({ selectedProject, projects }) => {
 
   useEffect(() => {
     setPrevProject();
-    console.log(projectsThatIsNotSelect);
   }, []);
   return (
     <>

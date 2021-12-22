@@ -1,7 +1,19 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useMatch } from 'react-router-dom';
 
 const Navbar = () => {
+  const [isProjectPage, setIsProjectPage] = useState(false);
+  let match = useMatch('/work-1/:id');
+
+  useEffect(() => {
+    console.log(match);
+    if (match) {
+      setIsProjectPage(true);
+    } else {
+      setIsProjectPage(false);
+    }
+  }, [match]);
+
   return (
     <>
       <div className="flex justify-between items-center p-20 pt-10">
@@ -11,7 +23,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex gap-6 font-light">
-          <NavLink to="/">Work</NavLink>
+          <NavLink className={`${isProjectPage && 'active'}`} to="/">
+            Work
+          </NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/our-team">Our Team</NavLink>
           <NavLink to="/press">Press</NavLink>
